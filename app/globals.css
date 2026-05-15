@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -46,6 +46,12 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --color-green-muted: var(--green-muted);
+  --color-green-muted-foreground: var(--green-muted-foregroud);
+  --color-chart-3-muted: var(--chart-3-muted);
+  --color-chart-3-muted-foreground: var(--chart-3-muted-foreground);
+  --color-chart-4-muted: var(--chart-4-muted);
+  --color-chart-4-muted-foreground: var(--chart-4-muted-foreground);
 }
 
 :root {
@@ -81,6 +87,12 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --green-muted: oklch(43.653% 0.26199 273.405);
+  --green-muted-foreground: oklch(45.894% 0.20184 281.938);
+  --chart-3-muted: oklch(85.008% 0.20408 130.426);
+  --chart-3-muted-foreground: oklch(84.389% 0.23114 132.481);
+  --chart-4-muted: oklch(64.95% 0.20328 1.246);
+  --chart-4-muted-foreground: oklch(72.045% 0.17254 358.592);
 }
 
 .dark {
@@ -115,6 +127,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --green-muted: oklch(43.653% 0.26199 273.405);
+  --green-muted-foreground: oklch(45.894% 0.20184 281.938);
+  --color-chart-3-muted: var(--chart-3-muted);
+  --color-chart-3-muted-foreground: var(--chart-3-muted-foreground);
+  --color-chart-4-muted: var(--chart-4-muted);
+  --color-chart-4-muted-foreground: var(--chart-4-muted-foreground);
 }
 
 @layer base {
