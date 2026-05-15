@@ -15,12 +15,14 @@ import {
 import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
 import { useTheme } from 'next-themes';
+import { SidebarTrigger } from './ui/sidebar';
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
   return (
-    <nav className="p-4 flex items-center justify-between">
+    <nav className="flex items-center justify-between p-4 ">
       {/* collapse button */}
+      <SidebarTrigger />
 
       {/* link */}
 

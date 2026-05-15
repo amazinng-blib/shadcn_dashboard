@@ -1,7 +1,248 @@
+'use client';
 import React from 'react';
 
+import {
+  BarChart3,
+  Bell,
+  ChevronDown,
+  ChevronUp,
+  FileText,
+  Folder,
+  HelpCircle,
+  Home,
+  Plus,
+  Projector,
+  Settings,
+  User,
+  User2,
+} from 'lucide-react';
+
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupAction,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuBadge,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarSeparator,
+} from './ui/sidebar';
+import Link from 'next/link';
+import Image from 'next/image';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from './ui/collapsible';
+
+export const sidebarItems = [
+  {
+    title: 'Dashboard',
+    url: '/dashboard',
+    icon: Home,
+  },
+  {
+    title: 'Profile',
+    url: '/profile',
+    icon: User,
+  },
+  {
+    title: 'Analytics',
+    url: '/analytics',
+    icon: BarChart3,
+  },
+  {
+    title: 'Projects',
+    url: '/projects',
+    icon: Folder,
+  },
+  {
+    title: 'Documents',
+    url: '/documents',
+    icon: FileText,
+  },
+  {
+    title: 'Notifications',
+    url: '/notifications',
+    icon: Bell,
+  },
+  {
+    title: 'Settings',
+    url: '/settings',
+    icon: Settings,
+  },
+  {
+    title: 'Help',
+    url: '/help',
+    icon: HelpCircle,
+  },
+];
+
 const AppSidebar = () => {
-  return <div>AppSidebar</div>;
+  return (
+    <Sidebar collapsible="icon">
+      <SidebarHeader className="py-4">
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <Link href={'/'}>
+                <Image src={'globe.svg'} alt="logo" width={20} height={20} />
+                <span>Shadcn Dashboard</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
+
+      <SidebarSeparator />
+
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel className="tracking-wider font-medium text-muted-foreground">
+            Application
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {sidebarItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <Link href={item.url}>
+                      <item.icon className="mr-2 h-4 w-4" />
+                      {item.title}
+                    </Link>
+                  </SidebarMenuButton>
+                  {item.title === 'Notifications' && (
+                    <SidebarMenuBadge>20</SidebarMenuBadge>
+                  )}
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Projects</SidebarGroupLabel>
+          <SidebarGroupAction>
+            <Plus /> <span className="sr-only">Add Project</span>
+          </SidebarGroupAction>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href={'/#'}>
+                    <Projector /> See All Projects
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href={'/#'}>
+                    <Plus /> Add Project
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger>
+                Collapsible group
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href={'/#'}>
+                        <Projector /> See All Projects
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href={'/#'}>
+                        <Plus /> Add Project
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
+        {/* nested  */}
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
+
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href={'/#'}>
+                    <Projector /> See All Projects
+                  </Link>
+                </SidebarMenuButton>
+                <SidebarMenuSub>
+                  <SidebarMenuSubItem>
+                    <SidebarMenuSubButton asChild>
+                      <Link href={'#'}>
+                        <Plus /> Add Project{' '}
+                        <span className="sr-only"> add project</span>
+                      </Link>
+                    </SidebarMenuSubButton>
+                    <SidebarMenuSubButton asChild>
+                      <Link href={'#'}>
+                        <Plus /> Add Category{' '}
+                        <span className="sr-only"> add category</span>
+                      </Link>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                </SidebarMenuSub>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton>
+                  <User2 /> John Doe <ChevronUp className="ml-auto" />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+
+              <DropdownMenuContent align="center">
+                <DropdownMenuItem>Accounts</DropdownMenuItem>
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem>Sign out</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
+    </Sidebar>
+  );
 };
 
 export default AppSidebar;
