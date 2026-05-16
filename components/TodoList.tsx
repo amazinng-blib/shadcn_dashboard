@@ -58,6 +58,51 @@ const TodoList = () => {
               </label>
             </div>
           </Card>
+          {/* list Item */}
+          <Card className="p-4">
+            <div className="flex items-center gap-4">
+              <Checkbox id="item2" />
+              <label htmlFor="item2" className="text-sm text-muted-foreground">
+                Item 2
+              </label>
+            </div>
+          </Card>
+          {/* list Item */}
+          <Card className="p-4">
+            <div className="flex items-center gap-4">
+              <Checkbox id="item3" />
+              <label htmlFor="item3" className="text-sm text-muted-foreground">
+                Item 3
+              </label>
+            </div>
+          </Card>
+          {/* list Item */}
+          <Card className="p-4">
+            <div className="flex items-center gap-4">
+              <Checkbox id="item4" />
+              <label htmlFor="item4" className="text-sm text-muted-foreground">
+                Item 4
+              </label>
+            </div>
+          </Card>
+          {/* list Item */}
+          <Card className="p-4">
+            <div className="flex items-center gap-4">
+              <Checkbox id="item5" />
+              <label htmlFor="item5" className="text-sm text-muted-foreground">
+                Item 5
+              </label>
+            </div>
+          </Card>
+          {/* list Item */}
+          <Card className="p-4">
+            <div className="flex items-center gap-4">
+              <Checkbox id="item6" />
+              <label htmlFor="item6" className="text-sm text-muted-foreground">
+                Item 6
+              </label>
+            </div>
+          </Card>
         </div>
       </ScrollArea>
     </div>
