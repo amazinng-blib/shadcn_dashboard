@@ -32,6 +32,20 @@ const latestTransactions = [
     image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg',
     count: 7600,
   },
+  {
+    id: 5,
+    title: 'Premium Plan Upgrade',
+    badge: 'Emily Brown',
+    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg',
+    count: 7600,
+  },
+  {
+    id: 6,
+    title: 'Premium Plan Upgrade',
+    badge: 'Emily Brown',
+    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg',
+    count: 7600,
+  },
 ];
 
 const popularContents = [
@@ -66,16 +80,16 @@ const popularContents = [
 ];
 const CardList = ({ title }: { title: string }) => {
   const lists =
-    title === 'Popular Content' ? popularContents : latestTransactions;
+    title === 'Popular Contents' ? popularContents : latestTransactions;
   return (
     <div>
-      <h1 className="text-lg font-medium mb-6">{title}</h1>
+      <h1 className="text-lg font-medium mb-6 ">{title}</h1>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 relative h-80 overflow-y-auto scrollbar-none px-2 ">
         {lists?.map((list, idx) => (
           <Card
             key={idx}
-            className="flex-row items-center justify-between gap-4 p-4"
+            className="shrink-0 flex-row items-center justify-between gap-4 p-2 "
           >
             <div className="shrink-0 w-12 h-12 rounded-sm relative overflow-hidden">
               <Image
